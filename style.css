@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+}
+
+:root {
+    --darkCyan: hsl(158, 36%, 37%);
+    --cream: hsl(30, 38%, 92%);
+    --darkBlue: hsl(212, 21%, 14%);
+    --grayishBlue: hsl(228, 12%, 48%);
+    --White: hsl(0, 0%, 100%);
+}
+
+/* text styles */
+
+h1 {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.43em;
+    text-transform: uppercase;
+    color: var(--grayishBlue);
+}
+
+h2 {
+    margin: 25px 0;
+    font-size: 32px;
+    font-family: Fraunces;
+    font-weight: 700;
+    line-height: 1.2;
+    max-width: 310px;
+    color: var(--darkBlue);
+}
+
+p {
+    font-size: 14px;
+    color: var(--grayishBlue);
+}
+
+#current-price {
+    font-size: 36px;
+    font-family: Fraunces;
+    color: var(--darkCyan);
+}
+
+#original-price {
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: line-through;
+}
+
+/* Main style */
+
+html,
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--cream);
+}
+
+main {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 1fr 2fr;
+    max-width: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.product-img {
+    grid-area: 1 / 1 / 3 / 2; 
+    background-image: url(images/image-product-desktop.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content { 
+    grid-area: 1 / 2 / 3 / 3; 
+    padding: 32px;
+    background-color: var(--White);
+}
+
+.text {
+    font-size: 14px;
+    line-height: 180%;
+}
+
+.price {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.buy {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px 0;
+    background-color: var(--darkCyan);
+    border-radius: 14px;
+    width: 100%;
+    transition: background-color 150ms ease-in-out, 
+                box-shadow 150ms ease-in-out;
+}
+
+a.buy {
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--White);
+}
+
+/* Active states */
+
+.buy:hover {
+    background-color: #28634b;
+    transition: background-color 150ms ease-in-out, 
+                box-shadow 150ms ease-in-out;
+    box-shadow: inset 0px -4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.buy:active {
+    box-shadow: none;
+    transition: box-shadow 50ms;
+}
+
+/* media querys */
+
+@media screen and (max-width: 640px) {
+    main {
+        min-width: 360px;
+    }
+    .content{ grid-area: 2 / 1 / 3 / 3;}
+    .product-img {
+        grid-area: 1 / 1 / 2 / 3;
+        background-image: url(images/image-product-mobile.jpg);
+    }
+}
